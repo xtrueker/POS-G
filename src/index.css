@@ -1,0 +1,450 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Elegant Black & White Theme */
+    --background: 0 0% 98%;
+    --foreground: 240 10% 2%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 2%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 2%;
+    --primary: 240 5.9% 10%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    --radius: 0rem;
+    
+    /* Custom colors - Elegant Monochrome */
+    --black: #000000;
+    --white: #FFFFFF;
+    --gray-50: #FAFAFA;
+    --gray-100: #F5F5F5;
+    --gray-200: #E5E5E5;
+    --gray-300: #D4D4D4;
+    --gray-400: #A3A3A3;
+    --gray-500: #737373;
+    --gray-600: #525252;
+    --gray-700: #404040;
+    --gray-800: #262626;
+    --gray-900: #171717;
+    --success: #10B981;
+    --warning: #F59E0B;
+    --error: #EF4444;
+    --info: #3B82F6;
+    
+    /* Animation easings */
+    --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-expo-in: cubic-bezier(0.7, 0, 0.84, 0);
+    --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-dramatic: cubic-bezier(0.87, 0, 0.13, 1);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-liquid: cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .dark {
+    --background: 240 10% 2%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 12%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 10%;
+    --muted-foreground: 240 5% 60%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 12%;
+    --input: 240 3.7% 12%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0px; /* Muji style: no radius */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Elegant Button Styles */
+  .btn-primary {
+    @apply bg-black text-white font-medium px-6 py-3 rounded-lg transition-all duration-300;
+  }
+  
+  .btn-primary:hover {
+    @apply bg-gray-800 scale-[1.02] shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-black font-medium px-6 py-3 rounded-lg border border-gray-200 transition-all duration-300;
+  }
+  
+  .btn-secondary:hover {
+    @apply bg-gray-50 border-gray-300 scale-[1.02];
+  }
+  
+  .btn-outline {
+    @apply bg-transparent text-black font-medium px-6 py-3 rounded-lg border-2 border-black transition-all duration-300;
+  }
+  
+  .btn-outline:hover {
+    @apply bg-black text-white;
+  }
+  
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Glass Effect - Elegant */
+  .glass-effect {
+    @apply backdrop-blur-xl bg-white/80 border border-gray-100;
+  }
+
+  .glass-dark {
+    @apply bg-zinc-950/40 backdrop-blur-2xl border border-white/5 shadow-[0_8px_32px_rgba(0,0,0,0.4)];
+  }
+
+  .glass-light {
+    @apply bg-white/40 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_rgba(31,38,135,0.07)];
+  }
+
+  .border-glow {
+    @apply shadow-[0_0_20px_rgba(255,255,255,0.03)] border-white/10;
+  }
+
+  .border-glow-light {
+    @apply shadow-[0_4px_20px_rgba(0,0,0,0.03)] border-zinc-200;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-zinc-200 dark:bg-zinc-800 transition-colors;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-zinc-300 dark:bg-zinc-700;
+  }
+  
+  .border-glow-hover:hover {
+    @apply border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.05)];
+  }
+  
+  /* Card Styles */
+  .card-elegant {
+    @apply bg-white rounded-xl border border-gray-100 shadow-sm transition-all duration-300;
+  }
+  
+  .card-elegant:hover {
+    @apply shadow-lg border-gray-200;
+  }
+  
+  /* Input Styles */
+  .input-elegant {
+    @apply bg-gray-50 border border-gray-200 rounded-lg px-4 py-3 text-black placeholder:text-gray-400 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-black/10 focus:border-black;
+  }
+  
+  /* Status Badges */
+  .badge-success {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800;
+  }
+  
+  .badge-warning {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800;
+  }
+  
+  .badge-error {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800;
+  }
+  
+  .badge-info {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800;
+  }
+  
+  .badge-neutral {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800;
+  }
+  
+  /* Sidebar Navigation */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-gray-600 transition-all duration-200;
+  }
+  
+  .nav-item:hover {
+    @apply bg-gray-100 text-black;
+  }
+  
+  .nav-item.active {
+    @apply bg-black text-white;
+  }
+  
+  /* Table Styles */
+  .table-elegant {
+    @apply w-full text-left border-collapse;
+  }
+  
+  .table-elegant th {
+    @apply px-6 py-4 text-xs font-semibold text-gray-500 uppercase tracking-wider bg-gray-50 border-b border-gray-100;
+  }
+  
+  .table-elegant td {
+    @apply px-6 py-4 text-sm text-gray-700 border-b border-gray-50;
+  }
+  
+  .table-elegant tr:hover td {
+    @apply bg-gray-50;
+  }
+  
+  /* Stat Card */
+  .stat-card {
+    @apply bg-white p-6 rounded-xl border border-gray-100 shadow-sm;
+  }
+  
+  .stat-card:hover {
+    @apply shadow-md border-gray-200;
+  }
+  
+  /* Divider */
+  .divider-elegant {
+    @apply h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent;
+  }
+  
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent;
+  }
+  
+  /* QR Scanner Container */
+  .scanner-container {
+    @apply relative overflow-hidden rounded-xl bg-black;
+  }
+  
+  .scanner-line {
+    @apply absolute left-0 right-0 h-0.5 bg-white/80 shadow-[0_0_10px_rgba(255,255,255,0.8)];
+    animation: scan-line 2s linear infinite;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 3s;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 0.6s var(--ease-expo-out) forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slide-up 0.6s var(--ease-expo-out) forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scale-in 0.5s var(--ease-elastic) forwards;
+  }
+  
+  .animate-scan-line {
+    animation: scan-line 2s linear infinite;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scan-line {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Elegant Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4D4D4;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A3A3A3;
+}
+
+/* Selection */
+::selection {
+  background: #000000;
+  color: #FFFFFF;
+}
+
+/* Elite Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-container {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    border: none !important;
+  }
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+  }
+  th, td {
+    border: 1px solid #eee !important;
+    padding: 10px !important;
+    text-align: left !important;
+  }
+}
