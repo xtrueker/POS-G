@@ -1,0 +1,42 @@
+{
+  "name": "POS-G",
+  "short_name": "POS-G",
+  "description": "El sistema POS #1 de Colombia para tu negocio",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#000000",
+  "theme_color": "#F2CB05",
+  "lang": "es-CO",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Nueva Venta",
+      "short_name": "Venta",
+      "description": "Registrar una venta rápida",
+      "url": "/dashboard/ventas"
+    },
+    {
+      "name": "Dashboard",
+      "short_name": "Panel",
+      "description": "Ver estadísticas del negocio",
+      "url": "/dashboard"
+    }
+  ]
+}
